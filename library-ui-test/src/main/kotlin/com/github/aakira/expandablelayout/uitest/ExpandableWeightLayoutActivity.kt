@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.github.aakira.expandablelayout.ExpandableWeightLayout
 import kotlin.properties.Delegates
 
@@ -24,7 +25,7 @@ class ExpandableWeightLayoutActivity : AppCompatActivity() {
         supportActionBar?.title = ExpandableWeightLayoutActivity::class.java.simpleName
 
         expandableLayout = findViewById(R.id.expandableLayout) as ExpandableWeightLayout
-        findViewById(R.id.expandButton)?.setOnClickListener { expandableLayout.toggle() }
-        findViewById(R.id.moveWeightButton)?.setOnClickListener { expandableLayout.move(2f, 0, null) }
+        findViewById<View>(R.id.expandButton)?.setOnClickListener { expandableLayout.toggle() }
+        findViewById<View>(R.id.moveWeightButton)?.setOnClickListener { expandableLayout.move(2f, 0, null) }
     }
 }
