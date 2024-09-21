@@ -19,7 +19,7 @@ android {
 
 dependencies {
     api project(':library')
-
+//    implementation 'com.github.TonyTangAndroid:ExpandableLayout:1.7.0'
     api 'androidx.appcompat:appcompat:1.0.0'
     api 'androidx.recyclerview:recyclerview:1.0.0'
 }
