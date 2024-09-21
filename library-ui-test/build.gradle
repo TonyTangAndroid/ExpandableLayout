@@ -11,7 +11,7 @@ android {
         versionCode VERSION_CODE as int
         versionName VERSION_NAME
 
-        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         release {
@@ -27,16 +27,16 @@ android {
 dependencies {
     api project(':library')
 
-    api "com.android.support:appcompat-v7:$SUPPORT_APP_COMPAT_VERSION"
-    api "com.android.support:recyclerview-v7:$SUPPORT_APP_COMPAT_VERSION"
+    api 'androidx.appcompat:appcompat:1.0.0'
+    api 'androidx.recyclerview:recyclerview:1.0.0'
     api "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
     api 'io.reactivex:rxjava:1.1.6'
     api 'io.reactivex:rxandroid:1.2.1'
-    androidTestImplementation "com.android.support:support-annotations:$SUPPORT_APP_COMPAT_VERSION"
-    androidTestImplementation "com.android.support.test:runner:$SUPPORT_TEST_VERSION"
-    androidTestImplementation "com.android.support.test:rules:$SUPPORT_TEST_VERSION"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$ESPRESSO_VERSION"
-    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$ESPRESSO_VERSION") {
+    androidTestImplementation 'androidx.annotation:annotation:1.0.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test:rules:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation('androidx.test.espresso:espresso-contrib:3.1.0') {
         exclude group: 'com.android.support', module: 'appcompat'
         exclude group: 'com.android.support', module: 'support-v4'
         exclude module: 'recyclerview-v7'

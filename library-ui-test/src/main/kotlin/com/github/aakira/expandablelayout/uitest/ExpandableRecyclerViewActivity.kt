@@ -4,10 +4,10 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.SparseBooleanArray
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +32,7 @@ class ExpandableRecyclerViewActivity : AppCompatActivity() {
         }
     }
 
-    private var recyclerView: RecyclerView by Delegates.notNull()
+    private var recyclerView: androidx.recyclerview.widget.RecyclerView by Delegates.notNull()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,14 +68,15 @@ class ExpandableRecyclerViewActivity : AppCompatActivity() {
             data.add(ItemModel(" ------------------ $it ------------------",
                     texts[it % texts.size], color.first, color.second))
         }
-        recyclerView = findViewById(R.id.recyclerView) as RecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(this);
+        recyclerView = findViewById(R.id.recyclerView) as androidx.recyclerview.widget.RecyclerView
+        recyclerView.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(this);
         recyclerView.adapter = RecyclerViewAdapter(data)
     }
 
     data class ItemModel(val title: String, val description: String, var colorId1: Int, val colorId2: Int)
 
-    class RecyclerViewAdapter(private val data: List<ItemModel>) : RecyclerView.Adapter<RecyclerViewAdapter.ExpandableViewHolder>() {
+    class RecyclerViewAdapter(private val data: List<ItemModel>) : androidx.recyclerview.widget.RecyclerView.Adapter<RecyclerViewAdapter.ExpandableViewHolder>() {
         private var context: Context? = null
         private val expandState = SparseBooleanArray()
 
@@ -124,7 +125,7 @@ class ExpandableRecyclerViewActivity : AppCompatActivity() {
             return data.size
         }
 
-        class ExpandableViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+        class ExpandableViewHolder(v: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(v) {
             var title: TextView
             var description: TextView
             var buttonLayout: RelativeLayout
