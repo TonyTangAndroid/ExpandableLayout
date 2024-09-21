@@ -1,0 +1,20 @@
+name: Android Feature Branch CI
+
+on:
+  pull_request:
+    branches:
+      - '*'
+      - '!release*'
+
+jobs:
+  basic_compile_and_test:
+    name: Conduct basic apk compile and unit test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.0.0
+      - uses: actions/setup-java@v4.3.0
+        with:
+          distribution: 'zulu'
+          java-version: 11
+      - name: Compile apk
+        run: ./gradlew :sample:assembleDebug
