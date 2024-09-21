@@ -1,6 +1,6 @@
 package com.github.aakira.expandablelayout.uitest.utils;
 
-import androidx.test.espresso.IdlingResource;
+import android.support.test.espresso.IdlingResource;
 
 /**
  * Referenced from stack over flow.
