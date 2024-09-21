@@ -2,7 +2,7 @@ package com.github.aakira.expandablelayout;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import android.support.test.runner.AndroidJUnit4;
 import android.view.AbsSavedState;
 import android.view.View;
 
