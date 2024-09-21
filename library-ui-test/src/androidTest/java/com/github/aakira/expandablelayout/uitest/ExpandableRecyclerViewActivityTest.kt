@@ -1,18 +1,18 @@
 package com.github.aakira.expandablelayout.uitest
 
 import android.app.Activity
-import android.support.test.InstrumentationRegistry
-import android.support.test.espresso.Espresso
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.UiController
-import android.support.test.espresso.ViewAction
-import android.support.test.espresso.action.ViewActions
-import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.contrib.RecyclerViewActions
-import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
-import android.support.test.espresso.matcher.ViewMatchers.withId
-import android.support.test.runner.AndroidJUnit4
-import android.support.v7.widget.RecyclerView
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.espresso.Espresso
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.UiController
+import androidx.test.espresso.ViewAction
+import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.recyclerview.widget.RecyclerView
 import android.test.ActivityInstrumentationTestCase2
 import android.view.View
 import com.github.aakira.expandablelayout.uitest.ExpandableRecyclerViewActivity.RecyclerViewAdapter.ExpandableViewHolder
@@ -54,7 +54,7 @@ class ExpandableRecyclerViewActivityTest : ActivityInstrumentationTestCase2<Expa
         assertThat(instrumentation, notNullValue())
 
         // count items in recycler view for test
-        val recyclerView = activity.findViewById(R.id.recyclerView) as RecyclerView
+        val recyclerView = activity.findViewById(R.id.recyclerView) as androidx.recyclerview.widget.RecyclerView
         assertThat(recyclerView.adapter.itemCount, _is(101))
 
         val duration = ExpandableRecyclerViewActivity.DURATION + 100// add scroll buffer(100)
@@ -171,7 +171,7 @@ class ExpandableRecyclerViewActivityTest : ActivityInstrumentationTestCase2<Expa
         }
 
         override fun matchesSafely(view: View): Boolean {
-            if (view !is RecyclerView) return false
+            if (view !is androidx.recyclerview.widget.RecyclerView) return false
 
 
             val holder = view.findViewHolderForAdapterPosition(position) as ExpandableViewHolder
@@ -193,7 +193,7 @@ class ExpandableRecyclerViewActivityTest : ActivityInstrumentationTestCase2<Expa
         override fun getConstraints() = isDisplayed()
 
         override fun perform(uiController: UiController, view: View) {
-            if (view !is RecyclerView) return
+            if (view !is androidx.recyclerview.widget.RecyclerView) return
 
             val holder = view.findViewHolderForAdapterPosition(position) as ExpandableViewHolder
             holder.expandableLayout.expand()
@@ -209,7 +209,7 @@ class ExpandableRecyclerViewActivityTest : ActivityInstrumentationTestCase2<Expa
         override fun getConstraints() = isDisplayed()
 
         override fun perform(uiController: UiController, view: View) {
-            if (view !is RecyclerView) return
+            if (view !is androidx.recyclerview.widget.RecyclerView) return
 
             val holder = view.findViewHolderForAdapterPosition(position) as ExpandableViewHolder
             holder.expandableLayout.collapse()
