@@ -95,9 +95,9 @@ class ExpandableRecyclerViewActivity : AppCompatActivity() {
             holder.setIsRecyclable(false)
             holder.title.text = item.title
             holder.description.text = item.description
-            holder.itemView.setBackgroundColor(ContextCompat.getColor(context, item.colorId1))
+            holder.itemView.setBackgroundColor(ContextCompat.getColor(context!!, item.colorId1))
             holder.expandableLayout.setInRecyclerView(true)
-            holder.expandableLayout.setBackgroundColor(ContextCompat.getColor(context, item.colorId2))
+            holder.expandableLayout.setBackgroundColor(ContextCompat.getColor(context!!, item.colorId2))
             holder.expandableLayout.setInterpolator(LinearInterpolator())
             holder.expandableLayout.isExpanded = expandState.get(position)
             holder.expandableLayout.setListener(object : ExpandableLayoutListenerAdapter() {
